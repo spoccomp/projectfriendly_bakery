@@ -1,0 +1,13 @@
+body {
+  padding: 20px;
+  background-image: url("thumb-1920-2957.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  /* background-size: cover; */
+  height: 100%; 
+}
+.logo{
+  width: 200px;
+  /* height: 200px; */
+}
+

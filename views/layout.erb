@@ -15,9 +15,30 @@
   <title>The Good Stuff!</title>
 </head>
 <body>
-  
+   <nav>
+    <div class="nav-wrapper">
+      <a href="#" class="brand-logo ">
+        <img class="responsive-img logo" src="bakery_logo.jpg" alt="logo">
+      </a>
+      <ul id="nav-mobile" class="right hide-on-med-and-down">
+        <li><a href="/home">Home</a></li>
+        <li><a href="/cookies">Cookies</a></li>
+        <li><a href="/cakes">Cakes</a></li>
+        <li><a href="/muffins">Muffins</a></li>
+        <li><a href="/cakes">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
 
 
   <%= yield %>
+  <footer>
+   <div class="footer-copyright center">
+            <div class="container">
+            <h4>Thank you for visiting!</h4>
+            © 2018 Copyright 
+            </div>
+          </div>
+</footer>
 </body>
 </html>
