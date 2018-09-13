@@ -93,9 +93,9 @@ PLATFORMS
 
 DEPENDENCIES
   httparty!
-  material_icons (~> 2.2, >= 2.2.1)!
-  materialize (~> 0.4.5)!
-  materialize-sass (~> 0.100.2)!
+  material_icons!
+  materialize!
+  materialize-sass!
   sendgrid-ruby!
   sinatra!
 
