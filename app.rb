@@ -1,6 +1,7 @@
 require 'sinatra'
 require 'sendgrid-ruby'
-require 'make_it_so'
+# require 'make_it_so'
+
 include SendGrid
 
 
@@ -63,3 +64,4 @@ post "/contact" do
   
   # display http response headers
   puts response.headers
+  end

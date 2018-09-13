@@ -10,7 +10,4 @@ class Cookie
   addtoBag(add)
     @bag.push(add)
   end
-  
-
-
 end
