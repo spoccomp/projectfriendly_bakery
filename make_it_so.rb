@@ -46,6 +46,15 @@ class Bag
     @bag = {}
     # @bag << self
   end
+  def printCatalog()
+  File.open('catalog.txt', 'w') do |f|
+    @catalog.each do |element|
+      element.each do |k, v|
+        f.puts "#{k}: #{v} <=>"
+      end
+    end
+  end
+end
   def displayCatalog()
     puts "Here is our catalog:"
     @catalog.each do |element|
@@ -143,3 +152,5 @@ puts rich.typeOfCookies()
 puts franklin.amountOfCakes()
 puts franklin.kindOf()
 franklin.total()
+
+rich.printCatalog()
