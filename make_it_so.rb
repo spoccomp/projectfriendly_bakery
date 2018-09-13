@@ -46,6 +46,7 @@ class Bag
     @bag = {}
     # @bag << self
   end
+
   def printCatalog()
   File.open('catalog.txt', 'w') do |f|
     @catalog.each do |element|
@@ -132,25 +133,4 @@ class Muffin < Bag
     return type
   end
 end
-rich = Cookie.new("chocalate chip", 4)
 
-franklin = Cake.new("birthday cake", 2)
-puts "Amount of cookies "  
-puts rich.amountOfCookies()
-puts rich.kindOf()
-puts "total cost:"
-rich.total()
-
-rich.addtoBag()
-rich.bagItems()
-franklin.addtoBag()
-franklin.bagItems()
-
-
-rich.displayCatalog()
-puts rich.typeOfCookies()
-puts franklin.amountOfCakes()
-puts franklin.kindOf()
-franklin.total()
-
-rich.printCatalog()
