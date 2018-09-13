@@ -27,7 +27,7 @@ class Bag
         "For all occasions, all flavors and sizes."
       ],
       "wedding cake" => ["Call for pricing","wedding_cake.jpg",
-       "The best of the best we tower over the rest. Please come to the bakery to discuss all of the different combinations"
+       "The best of the best we tower over the rest. Please come to the bakery to discuss all of the different combinations."
       ],
       "flavored cake" => ["$20.00 each","chocalate_cake.png",
         "We make all kinds of flavors of cake and icings for your imagination."
@@ -37,16 +37,30 @@ class Bag
         "Savory hot mess with butter, you deserve it!"
       ],
       "blueberry muffin" => ["$5.00 each","blueberry_muffin.jpg",
-        "The berries pop in your mouth with juicy sweet flavor"
+        "The berries pop in your mouth with juicy sweet flavor."
       ],
       "corn protien muffin" => ["$5.00 each","corn_protien_muffin.jpg",
         "The healthy choice, taste corn and feel your muscles grow."
       ]},
     ]
     @bag = {}
-    # @bag << self
+    @descript = []
   end
-
+  def descriptionList()  
+    @descript.push(@catalog[0][:cookies]["chocalate chip cookie"][2])
+    @descript.push(@catalog[0][:cookies]["green cookie"][2])
+    @descript.push( @catalog[0][:cookies]["fancy cookie"][2])
+    @descript.push(@catalog[0][:cakes]["birthday cake"][2])
+    @descript.push(@catalog[0][:cakes]["wedding cake"][2])
+    @descript.push(@catalog[0][:cakes]["flavored cake"][2])
+    @descript.push(@catalog[0][:muffins]["chocalate chip muffin"][2])
+    @descript.push(@catalog[0][:muffins]["blueberry muffin"][2])
+    @descript.push( @catalog[0][:muffins]["corn protien muffin"][2])
+    # @descript.each { |element| puts element } 
+  end
+  def getDesciptionItem(index)
+    @descript[index]
+  end
   def printCatalog()
   File.open('catalog.txt', 'w') do |f|
     @catalog.each do |element|
@@ -134,3 +148,21 @@ class Muffin < Bag
   end
 end
 
+rich = Cookie.new("chocalate chip", 4)
+# puts "Amount of cookies "  
+# puts rich.amountOfCookies()
+# puts rich.kindOf()
+# puts "total cost:"
+# rich.total()
+# rich.addtoBag()
+# rich.bagItems()
+
+# puts rich.typeOfCookies()
+
+# rich.printCatalog()
+
+# rich.displayCatalog()
+
+
+# rich.descriptionList()
+# rich.getDesciptionItem(0)

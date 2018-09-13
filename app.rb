@@ -19,7 +19,10 @@ puts rich.typeOfCookies()
 
 rich.displayCatalog()
 
-
+rich.descriptionList()
+# puts rich.getDesciptionItem(0) 
+# puts rich.getDesciptionItem(1)
+# puts rich.getDesciptionItem(11)
 get '/' do  
   
  
@@ -32,15 +35,23 @@ get '/home' do
   erb (:home)
 end
 get '/cookies' do
+  @choc_chip_cookie = rich.getDesciptionItem(0)
+  @joker_cookie = rich.getDesciptionItem(1)
+  @fancy_cookie = rich.getDesciptionItem(2)
 
   erb (:cookies)
 end
 get '/cakes' do
- 
+ @wedding_cake = rich.getDesciptionItem(3)
+ @choco_cake = rich.getDesciptionItem(4)
+ @birthday_cake = rich.getDesciptionItem(5)
   erb (:cakes)
 end
 get '/muffins' do
-
+  
+ @choc_muffin = rich.getDesciptionItem(6)
+ @blueberry_muffin = rich.getDesciptionItem(7)
+ @corn_protien_muffin = rich.getDesciptionItem(8)
   erb (:muffins)
 end
 get '/about' do
@@ -55,8 +66,8 @@ post "/about" do
   to = Email.new(email: params[:email_address])
   subject = 'Thank you - The Corner Bakery Cafe'
   content = Content.new(
-    type: 'text/plain', 
-    value:  
+    type: 'text/html', 
+    value: 
      "Cookies
       chocalate chip cookie $2.00 each
         Delicous crunchy but soft and gooy, heaven in your mouth.
