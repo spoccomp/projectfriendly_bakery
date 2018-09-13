@@ -1,60 +1,31 @@
 require 'sinatra'
 require 'sendgrid-ruby'
+require 'make_it_so'
 include SendGrid
 
 
 
 get '/' do  
   
-  @background ='
-  <style>
-  background-image: url("thumb-1920-2957.jpg") !Important;
-  background-position: center !Important;
-  background-repeat: no-repeat !Important; 
-  background-size: cover !Important;
-  </style>'
+ 
 erb (:home)
 end
 
 get '/home' do
-  @background ='
-  <style>
-  background-image: url("thumb-1920-2957.jpg");
-  background-position: center;
-  background-repeat: no-repeat; 
-  background-size: cover;
-  </style>'
+
 
   erb (:home)
 end
 get '/cookies' do
-  @background ='
-  <style>
-  background-image: url("background_for_other_pages.jpg");
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover; 
-    </style>'
+
   erb (:cookies)
 end
 get '/cakes' do
-  @background ='
-  <style>
-  background-image: url("background_for_other_pages.jpg");
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover; 
-    </style>'
+ 
   erb (:cakes)
 end
 get '/muffins' do
-  @background ='
-  <style>
-  background-image: url("background_for_other_pages.jpg");
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover; 
-    </style>'
+
   erb (:muffins)
 end
 get '/about' do
@@ -64,3 +35,31 @@ end
 get '/contact' do
   erb (:contact)
 end
+post "/contact" do
+  from = Email.new(email: 'richardtrapanese@gmail.com')
+  to = Email.new(email: params[:email_address])
+  subject = 'Thank you for voting'
+  content = Content.new(
+    type: 'text/plain', 
+    value: params[:comment]
+  )
+  
+  # create mail object with from, subject, to and content
+  mail = Mail.new(from, subject, to, content)
+  
+  # sets up the api key
+  sg = SendGrid::API.new(
+    api_key: ENV["sendgrid_key"]
+  )
+  
+  # sends the email
+  response = sg.client.mail._('send').post(request_body: mail.to_json)
+  
+  # display http response code
+  puts response.status_code
+  
+  # display http response body
+  puts response.body
+  
+  # display http response headers
+  puts response.headers
